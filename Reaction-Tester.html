@@ -1,56 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Javascript</title>
-	<style type="text/css">
-		#shapes{
-			width: 200px;
-			height: 200px;
-			background-color: red;
-			display: none;
-			position: relative;
-		}
+	<title>Reaction Tester</title>
 
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	
 </head>
 <body>
-		<p>your time is: <span id="time" ></span> </p>
+		<h1>Test Your Reaction Time!</h1>
+		<p>Click on shapes as quickly as you can to test your Reaction Time.</p>
+		<p class="tag1" >your time is: <span id="time" ></span> </p>
 		<div id="shapes" ></div>
-		<script type="text/javascript">
-			var starttime = new Date().getTime();
-			function appearShape(){
-				var topPosition = Math.random() * 350;
-				var leftPosition = Math.random() * 1000;
-				var width = Math.random() * 200;
-				document.getElementById("shapes").style.backgroundColor = randomColor();
-				document.getElementById("shapes").style.top = topPosition + "px";
-				document.getElementById("shapes").style.left = leftPosition + "px";
-				document.getElementById("shapes").style.width = width + "px";
-				document.getElementById("shapes").style.height = width + "px";
-				document.getElementById("shapes").style.display="block";
-				starttime = new Date().getTime();
-			}
-			function randomColor(){
-				var letters = '0123456789ABCDEF' .split('');
-				var color = '#';
-				for (var i = 0; i < 6; i++){
-					color += letters[Math.floor(Math.random() * 16)];
-				}
-				return color;
-			}
-			function appearAfterTime(){
-				setTimeout(appearShape , Math.random() * 2000);
-			}
-			appearAfterTime();
-			document.getElementById("shapes").onclick = function(){
-				document.getElementById("shapes").style.display="none";
-				var endtime = new Date().getTime();
-				var time = (endtime - starttime) / 1000;
-				document.getElementById("time").innerHTML = time + " Sec";
-				appearAfterTime();
-			}
-			
-	</script>
+		
+		<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
